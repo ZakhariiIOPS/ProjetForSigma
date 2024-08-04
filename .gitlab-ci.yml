@@ -5,4 +5,4 @@ services:
 
 build:
   script:
-    - docker build -t pig
+    - docker build . -t pig
