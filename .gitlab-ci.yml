@@ -3,6 +3,10 @@ image: docker
 services:
   - docker:dind
 
+before_script:
+  - export
+
 build:
   script:
+    - docker login -u zdzyndra -p  registry.gitlab.com
     - docker build . -t pig
