@@ -10,6 +10,6 @@ before_script:
 build:
   script:
     - docker pull registry.gitlab.com/zakharii/pigproject:latest
-    - docker build -t registry.gitlab.com/zakharii/pigproject:${CI_COMMIT_SHORT_SHA} -t registry.gitlab.com/zakharii/pigproject:latest . --cache-from docker push registry.gitlab.com/zakharii/pigproject:latest
+    - docker build -t registry.gitlab.com/zakharii/pigproject:${CI_COMMIT_SHORT_SHA} -t registry.gitlab.com/zakharii/pigproject:latest . --cache-from registry.gitlab.com/zakharii/pigproject:latest
     - docker push registry.gitlab.com/zakharii/pigproject:${CI_COMMIT_SHORT_SHA}
     - docker push registry.gitlab.com/zakharii/pigproject:latest
