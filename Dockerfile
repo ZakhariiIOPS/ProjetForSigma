@@ -1,10 +1,10 @@
-FROM golang: 1.16 AS build-env
+FROM golang:1.16 AS build-env
 
 RUN mkdir /app
 WORKDIR /app
 
 COPY ./go.mod /app
-COPY ./go. sum /app
+COPY ./go.sum /app
 
 RUN go mod download
 
@@ -16,7 +16,7 @@ FROM alpine
 
 RUN mkdir /app
 WORKDIR /app
-COPY --from-build-env /app/pig /app/pig
+COPY --from=build-env /app/pig /app/pig
 RUN mkdir /app/resoureces
 COPY --from=build-env /app/resources/index.html /app/resources/index.html
 
